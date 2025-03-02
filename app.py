@@ -199,9 +199,9 @@ if selected_tab == "Home":
                 st.error(f"⚠️ Error generating audio: {str(e)}")
 
 # --- About Me Tab ---
-elif selected_tab == "About Me":
+elif selected_tab == "About Us":
     st.header("About Me 👨‍💻")
-    st.write("Hi! I'm the creator of AfriLearn AI Tutor. Here's a little about me...")
+    st.write("Meet the AfriLearn AI Team We are a diverse team of professionals  and students specializing in AI,   software engineering, pedagogy, cybersecurity, and machine learning. With expertise spanning   data science, low-latency networks, education, and secure systems, we are committed to developing AfriLearn—an AI-powered tutoring platform designed to provide equitable, personalized education across Africa. Our platform integrates multilingual AI chatbots, culturally relevant visual lessons, and mentorship tracking to enhance learning experiences, even in low-connectivity regions. Together, we aim to bridge the digital divide and empower students through innovative, accessible education.")
 
 # --- Tutoring Request Tab ---
 elif selected_tab == "Tutoring Request":
