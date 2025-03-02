@@ -1,7 +1,6 @@
 streamlit
 openai==1.3.6
 pandas==2.1.4
-elevenlabs
 numpy==1.26.4
 elevenlabs==0.2.21
 stability-sdk==0.4.0
