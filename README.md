@@ -77,3 +77,27 @@ AfriLearn AI Tutor is a **personalized learning platform** designed to help Afri
    ```bash
    git clone https://github.com/MotsimAslam/AfriLearn-AI-Tutor.git
    cd AfriLearn-AI-Tutor
+2. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+4. Set up API keys:
+   - Create a secrets.toml file in the .streamlit directory.
+   - Add your API keys:
+     ```bash
+      AIML_API_KEY = "your_aiml_api_key"
+      ELEVENLABS_API_KEY = "your_elevenlabs_api_key"
+      STABILITY_KEY = "your_stability_api_key"
+      ADMIN_PASS = "your_admin_password"
+6. Run the app:
+   ```bash
+   streamlit run app.py
+## Contact
+For any questions or feedback, feel free to reach out:
+
+Email: mutasim.lion786@gmail.com
+GitHub: https://github.com/MotsimAslam
+LinkedIn: http://linkedin.com/in/motsimaslam
+
+   
+
+
