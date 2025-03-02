@@ -7,7 +7,6 @@ import pandas as pd
 from datetime import datetime
 from transformers import pipeline
 
-
 # --- Configuration ---
 st.set_page_config(
     page_title="AfriLearn AI Tutor",
@@ -22,13 +21,18 @@ STABILITY_KEY = st.secrets["STABILITY_KEY"]
 ADMIN_PASS = st.secrets["ADMIN_PASS"]
 
 # --- Initialize APIs ---
-base_url = "https://api.aimlapi.com/v1"  # AIML API endpoint
-api = OpenAI(api_key=AIML_API_KEY, base_url=base_url)
-elevenlabs_client = ElevenLabs(api_key=ELEVENLABS_API_KEY)
-stability_client = client.StabilityInference(
-    key=STABILITY_KEY,
-    engine="stable-diffusion-xl-1024-v1-0"
-)
+@st.cache_resource
+def initialize_apis():
+    base_url = "https://api.aimlapi.com/v1"  # AIML API endpoint
+    api = OpenAI(api_key=AIML_API_KEY, base_url=base_url)
+    elevenlabs_client = ElevenLabs(api_key=ELEVENLABS_API_KEY)
+    stability_client = client.StabilityInference(
+        key=STABILITY_KEY,
+        engine="stable-diffusion-xl-1024-v1-0"
+    )
+    return api, elevenlabs_client, stability_client
+
+api, elevenlabs_client, stability_client = initialize_apis()
 
 # --- Language Setup ---
 LANGUAGES = {
@@ -43,6 +47,9 @@ if "language" not in st.session_state:
 
 if "offline_mode" not in st.session_state:
     st.session_state.offline_mode = False  # Default offline mode
+
+if "messages" not in st.session_state:
+    st.session_state.messages = []
 
 # --- UI Translations ---
 TRANSLATIONS = {
@@ -133,7 +140,7 @@ if selected_tab == "Home":
     st.header(translations["chat_header"])
     
     # Initialize chat history
-    if "messages" not in st.session_state:
+    if not st.session_state.messages:
         st.session_state.messages = [{
             "role": "assistant", 
             "content": {
