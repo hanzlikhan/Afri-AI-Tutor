@@ -51,7 +51,7 @@ AfriLearn AI Tutor is a **personalized learning platform** designed to help Afri
 
 ## Screenshots
 ### Home Page
-![Home Page](Home Page.png)
+![Home Page](Afri-AI-Tutor/Home Page.png)
 
 ### Career Guidance
 ![Career Guidance](screenshots/career.png)
